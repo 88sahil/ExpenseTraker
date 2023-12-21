@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+*{
+    width: 100%;
+    height: auto;
+    scroll-behavior: smooth;
+}
+
+.Home_main{
+    display: flex;
+    flex-wrap: wrap;
+    width:100%;
+}
+.Home_div1{
+    width: 50%;
+}
+#homep1{
+    display: block;
+    font-weight: bolder;
+    font-size: 48px;
+    font-family: 'Pacifico', cursive;
+    background: -webkit-linear-gradient(#296fa8, #b5e5ff,rgb(85, 85, 238));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    animation:colorchange 3s infinite ;
+}
+@keyframes colorchange {
+    0% ,100%{
+        background-position:-50px 75px;
+    }
+    50%{
+        background-position:25px 100px;
+    }
+}
+#homep2{
+    display: block;
+    font-weight: bold;
+    font-size: 36px;
+    background-image: url("D:/sahil's web/react practice/MegaProject/Expense Traker/src/assets/Images/texture.png");
+    background-clip: text;
+    background-position: 172px 327px;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+#homeBtn {
+    width: 150px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    color: #c5c5c5;
+    border: 0;
+    background-color:blue;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all 0.5s ease;
+  }
+  
+  #homeBtn:hover {
+    letter-spacing: 3px;
+    background-color: hsl(261deg 80% 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+  }
+  
+  #homeBtn:active {
+    letter-spacing: 3px;
+    background-color: hsl(261deg 80% 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+    transform: translateY(10px);
+    transition: 100ms;
+  }
+#Home_D2{
+    width: 50%;
+}
+  #Heroimg{
+    height: 467px;
+    width: 344px;
+  }
+  .coolinput {
+    border: none;
+    padding:10px 40px;
+    border-radius: 1rem;
+    background: #e8e8e8;
+    box-shadow: 20px 20px 60px #c5c5c5,
+           -20px -20px 60px #ffffff;
+    transition: 0.3s;
+   }
+   
+   .coolinput:focus {
+    outline-color: #e8e8e8;
+    background: #e8e8e8;
+    box-shadow: inset 20px 20px 60px #c5c5c5,
+           inset -20px -20px 60px #ffffff;
+    transition: 0.3s;
+   }
