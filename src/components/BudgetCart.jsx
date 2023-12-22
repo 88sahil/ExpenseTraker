@@ -23,7 +23,7 @@ const BudgetCart = ({name,amount,id}) => {
             <a className="atag flex justify-end mr-2 ">{amount}&#8377;</a>
         </div>
         <div className='w-full bg-[#A9A9A9] h-6 rounded-lg mt-4 shadow-md shadow-gray-600'>
-            <div className='bg-[#FF0000] h-full rounded-lg ml-[1px]' style={{width:`${b}%`}}></div>
+            <div className='bg-[#FF0000] h-full rounded-lg ml-[1px] max-w-full' style={{width:`${b}%`}}></div>
         </div>
         <div className='flex justify-between mt-3'>
             <a className='ml-2 text-[#938282]'>{total} Spend</a>

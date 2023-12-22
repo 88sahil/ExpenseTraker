@@ -6,16 +6,19 @@ import { BudgetContext } from '../context/Budget'
 import { nanoid } from 'nanoid'
 import { expenceContext } from '../context/Expence'
 import BudgetCart from '../components/BudgetCart'
+import ExList from '../components/ExList'
+import Footer from '../components/Footer'
+import { useNavigate } from 'react-router-dom'
 const Trake = () => {
     const {Budget,setBudget}= useContext(BudgetContext)
     const {expence,setexpence} = useContext(expenceContext)
-    const {user} = useContext(userContext)
+    const {user,setuser} = useContext(userContext)
     const [GM,setgm]= useState("")
     const [BgName,setBgName] = useState("")
     const Id = nanoid()
     const [BgAm,setBgAm] = useState(0)
     const hh = new Date().getHours()
-
+    const navigate = useNavigate()
 
     useEffect(()=>{
       if(hh>6 && hh<11){
@@ -33,6 +36,12 @@ const Trake = () => {
      if(exp){
       setexpence(JSON.parse(exp))
      }
+
+     const us =localStorage.getItem("user")
+     if(us){
+      setuser(us)
+     }
+
     },[])
 
    console.log()
@@ -71,12 +80,22 @@ const Trake = () => {
         
       }
       console.log(expence)
+      const deleteUser= ()=>{
+        localStorage.removeItem("user")
+        localStorage.removeItem("budget")
+        localStorage.removeItem("expence")
+        setBudget([])
+        setexpence([])
+        navigate("/")
+      }
   return (
     <div className='bg-[#fffbefee] w-full'>
-
+          <div className='flex justify-end w-full py-2'>
+            <button className='w-1/6 font-bold border-2 py-1.5 border-red-500 mr-10 duration-300 active:scale-75' onClick={deleteUser}>Delete User</button>
+          </div>
         <div className='w-full flex justify-between border items-center p-2'>
           {/* greet header */}
-            <p id="greet" className='mt-4'>Hello<span className='ml-[3px] text-[#16BAEE]'>{user || "name"}👋</span></p>
+            <p id="greet" className='mt-4'>Welcome,<span className='ml-[10px] text-[#16BAEE]'>{user || "name"}👋</span></p>
             <p className='flex justify-end mr-4 text-[#1B66D6] float-right text-[30px]'>{GM}</p>
         </div>
         <div className='px-6'>
@@ -97,7 +116,7 @@ const Trake = () => {
             placeholder='eg.,Food'
             className='py-2 shadow-sm bg-gray-400 rounded-lg text-black placeholder:text-black px-2 mb-4'
         ></input>
-        <label className='text-md font-bold' htmlFor="amount">BudgetName</label>
+        <label className='text-md font-bold' htmlFor="amount">Amount</label>
         <input
             type='number'
             name='amount'
@@ -120,7 +139,7 @@ const Trake = () => {
             placeholder='eg.,Food'
             className='py-2 shadow-sm bg-gray-400 rounded-lg text-black placeholder:text-black px-2 mb-4'
         ></input>
-        <label className='text-md font-bold' htmlFor="amount">BudgetName</label>
+        <label className='text-md font-bold' htmlFor="amount">Amount</label>
         <input
             type='number'
             name='amount'
@@ -135,6 +154,7 @@ const Trake = () => {
           <div className='mt-2'>
             <label htmlFor="Budget" className='font-bold'>Budget</label>
              <select id='Budget' onChange={(e)=>setexbg(e.target.value)} className='py-2 shadow-sm bg-gray-400 rounded-lg text-black placeholder:text-black px-2'>
+                  <option selected>none</option>
                   {
                     Budget.map((ele)=>(
                       <option value={ele.name} key={ele.id}>{ele.name}</option>
@@ -150,7 +170,7 @@ const Trake = () => {
         <div className=' border-l-[10px] border-solid border-red-600 ml-48 mt-16'>
           <a className='font-extrabold text-[20px] ml-[3px]'>Existing Budget</a>
         </div>
-        <div className='flex flex-wrap justify-center mt-2 p-8 gap-5 overflow-scroll'>
+        <div className='flex flex-wrap justify-center mt-2 p-8 gap-5'>
           {/* budget block */}
           {
             Budget.map((ele)=>(
@@ -162,7 +182,14 @@ const Trake = () => {
             ))
           }
         </div>
-
+          <div className='my-10'>
+            <div className='ml-28 border-l-[10px] border-green-600 text-xl font-extrabold pl-1 mb-6'>
+              Recenct Expences
+            </div>
+            <ExList/>
+          </div>
+          {/* footer */}
+          <Footer/>
     </div>
   )
 }

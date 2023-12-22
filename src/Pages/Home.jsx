@@ -2,16 +2,20 @@ import React, { useContext, useEffect, useState } from 'react'
 import './Pages.css'
 import H1 from '../assets/Images/Hero.jpg'
 import { userContext } from '../context/User.Context'
+import { useNavigate } from 'react-router-dom'
 const Home = () => {
+    const navigate = useNavigate()
     const {user,setuser} = useContext(userContext)
     const Saveuser=()=>{
         localStorage.setItem("user",user)
         setuser("")
+        navigate("/Home")
     }
     useEffect(()=>{
         const name= localStorage.getItem("user")
         if(name){
             setuser(name)
+            navigate("/Home")
         }
     },[])
   return (

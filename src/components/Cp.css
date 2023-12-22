@@ -9,3 +9,26 @@
 .atag{
     font-size: 1.2rem;
 }
+.h_div{
+    background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(233,190,148,1) 100%);
+}
+.h_div a{
+ display: inline-block;
+ text-align: center;
+ padding:10px 0;
+ width: 20%;
+ font-size: large;
+ font-weight: bold;
+ border-bottom: 1px solid black;
+}
+.data_div a{
+    font-weight: 600;
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+    background: transparent;
+}
+.Data_main > :nth-child(odd){
+    background: #fff8f8;
+}
