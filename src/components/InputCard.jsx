@@ -23,8 +23,6 @@ const InputCard = () => {
         ></input>
         <button className="flex bg-black/95 mt-4 w-1/2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">Add budget<img src={A} className='h-4 mt-1.5 w-4 ml-1.5' alt="add"></img></button>
        </div>
-        
-
     </form>
   )
 }
