@@ -19,3 +19,4 @@ export const BudgetContext=createContext("")
     )
  }
 
+export default BudgetProvider
