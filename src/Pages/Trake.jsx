@@ -68,7 +68,7 @@ const Trake = () => {
         const ex ={
           id:`${Id}`,
           name:`${exname}`,
-          Budget:`${Budget.length===1 ? `${Budget[0].name}`:exbg}`,
+          Budget:`${Budget.length===1 ? `${Budget[0].name}`:exbg}`|| `${exbg.length===0 ? `${Budget[0].name}`:""}`,
           amount:`${exAm}`,
           date:`${new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear()}`
         }
@@ -76,10 +76,7 @@ const Trake = () => {
         localStorage.setItem("expence",JSON.stringify([...expence,ex]))
         setexAm(0)
         setexname("")
-        setexbg("")
-        
       }
-      console.log(expence)
       const deleteUser= ()=>{
         localStorage.removeItem("user")
         localStorage.removeItem("budget")
@@ -154,7 +151,6 @@ const Trake = () => {
           <div className='mt-2'>
             <label htmlFor="Budget" className='font-bold'>Budget</label>
              <select id='Budget' onChange={(e)=>setexbg(e.target.value)} className='py-2 shadow-sm bg-gray-400 rounded-lg text-black placeholder:text-black px-2'>
-                  <option selected>none</option>
                   {
                     Budget.map((ele)=>(
                       <option value={ele.name} key={ele.id}>{ele.name}</option>

@@ -8,6 +8,7 @@ import ExpenceProvider from './context/Expence.jsx'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './Pages/Home.jsx'
 import Trake from './Pages/Trake.jsx'
+import BudgetPage from './Pages/BudgetPage.jsx'
 const router = createBrowserRouter([
   {
     path:"/",
@@ -15,7 +16,11 @@ const router = createBrowserRouter([
   },
   {
     path:"/Home",
-    element:<Trake/>
+    element:<Trake/>,
+  },
+  {
+    path:"/Home/:id",
+    element:<BudgetPage/>
   }
 ]
 )

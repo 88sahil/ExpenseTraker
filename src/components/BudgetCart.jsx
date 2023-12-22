@@ -1,21 +1,23 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import './Cp.css'
 import { expenceContext } from '../context/Expence'
 import { useNavigate } from 'react-router-dom'
-const BudgetCart = ({name,amount,id}) => {
+const BudgetCart = ({name,amount,id,active=true}) => {
+    const navigate = useNavigate()
     const a=50;
     const {expence} = useContext(expenceContext)
         const bgex = expence.filter((ele)=>(
             ele.Budget === name
         ))
-    let dd=0;
-    const total = bgex.map((a)=>{
-        dd = dd + parseInt(a.amount)
-        return dd;
-    })
-    console.log(total)
+    let total =0
+    for(let i of bgex){
+       total += parseInt(i.amount)
+    }
     const b = (total/(parseInt(amount)))*100
     const c = parseInt(amount) - total
+    const view =()=>{
+        navigate(`/Home/${id}`)
+    }
   return (
     <div className='BGDIV p-5 border border-red-500' key={id}>
         <div className='w-full flex justify-between'>
@@ -30,9 +32,11 @@ const BudgetCart = ({name,amount,id}) => {
             <a className='flex justify-end mr-3 text-[#938282]'>{c}left</a>
         </div>
         <div className='w-full flex justify-center mt-8'>
-            <button className='bg-[#FF0000] w-1/3 text-white px-4 py-1.5 rounded-lg hover:bg-transparent hover:text-black duration-200'>
+            {
+                active && <button className='bg-[#FF0000] w-1/3 text-white px-4 py-1.5 rounded-lg hover:bg-transparent hover:text-black duration-200' onClick={view}>
                 View Budget
             </button>
+            }
         </div>
     </div>
   )
