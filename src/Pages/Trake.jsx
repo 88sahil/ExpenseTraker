@@ -5,6 +5,7 @@ import A from '../assets/Images/add.png'
 import { BudgetContext } from '../context/Budget'
 import { nanoid } from 'nanoid'
 import { expenceContext } from '../context/Expence'
+import BudgetCart from '../components/BudgetCart'
 const Trake = () => {
     const {Budget,setBudget}= useContext(BudgetContext)
     const {expence,setexpence} = useContext(expenceContext)
@@ -28,16 +29,20 @@ const Trake = () => {
      if(localbg){
       setBudget(JSON.parse(localbg))
      }
+     const exp = localStorage.getItem("expence")
+     if(exp){
+      setexpence(JSON.parse(exp))
+     }
     },[])
 
-   
+   console.log()
     const Addbudget = (e) =>{
       e.preventDefault()
       const Bdg = {
         id:`${Id}`,
         name:`${BgName}`,
         amount:`${BgAm}`,
-        date:`${new Date().getDate()}`
+        date:`${new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear()}`
       }
       setBudget([...Budget,Bdg])
       console.log([...Budget,Bdg])
@@ -48,7 +53,24 @@ const Trake = () => {
     // Expence
       const [exname,setexname]=useState("")
       const [exAm,setexAm] = useState(0)
-      const [exBg,setexBg] = useState("")
+      const [exbg,setexbg] = useState("")
+      const addExpence = () =>{
+        
+        const ex ={
+          id:`${Id}`,
+          name:`${exname}`,
+          Budget:`${Budget.length===1 ? `${Budget[0].name}`:exbg}`,
+          amount:`${exAm}`,
+          date:`${new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear()}`
+        }
+        setexpence([...expence,ex])
+        localStorage.setItem("expence",JSON.stringify([...expence,ex]))
+        setexAm(0)
+        setexname("")
+        setexbg("")
+        
+      }
+      console.log(expence)
   return (
     <div className='bg-[#fffbefee] w-full'>
 
@@ -109,10 +131,10 @@ const Trake = () => {
         ></input>
         {/* Options Add */}
         {
-          Budget.length >1 && 
+          Budget.length > 1 && 
           <div className='mt-2'>
             <label htmlFor="Budget" className='font-bold'>Budget</label>
-             <select id='Budget' className='py-2 shadow-sm bg-gray-400 rounded-lg text-black placeholder:text-black px-2'>
+             <select id='Budget' onChange={(e)=>setexbg(e.target.value)} className='py-2 shadow-sm bg-gray-400 rounded-lg text-black placeholder:text-black px-2'>
                   {
                     Budget.map((ele)=>(
                       <option value={ele.name} key={ele.id}>{ele.name}</option>
@@ -122,10 +144,24 @@ const Trake = () => {
           </div>
          
         }
-        <button className="flex bg-black/95 mt-4 w-7/12 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">Add Expence<img src={A} className='h-4 mt-1.5 w-4 ml-1.5' alt="add"></img></button>
+        <button className="flex bg-black/95 mt-4 w-7/12 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out" onClick={addExpence}>Add Expence<img src={A} className='h-4 mt-1.5 w-4 ml-1.5' alt="add"></img></button>
        </div>
         </div>
-
+        <div className=' border-l-[10px] border-solid border-red-600 ml-48 mt-16'>
+          <a className='font-extrabold text-[20px] ml-[3px]'>Existing Budget</a>
+        </div>
+        <div className='flex flex-wrap justify-center mt-2 p-8 gap-5 overflow-scroll'>
+          {/* budget block */}
+          {
+            Budget.map((ele)=>(
+              <BudgetCart 
+                amount={ele.amount}
+                name={ele.name}
+                id={ele.id}
+              />
+            ))
+          }
+        </div>
 
     </div>
   )
