@@ -89,7 +89,7 @@ const Trake = () => {
          
         <div className='w-full flex justify-between border items-center p-2 flex-wrap'>
           {/* greet header */}
-            <p id="greet" className='mt-4 max-sm:text-[0.5rem]'>Welcome,<span className='ml-[8px] text-[#16BAEE] flex-1'>{user || "name"}👋</span></p>
+            <p id="greet" className='mt-4 max-sm:text-[25px]'>Welcome,<span className='ml-[8px] text-[#16BAEE] flex-1'>{user || "name"}👋</span></p>
             <p className='flex justify-end mr-4 text-[#8dbaff] float-right text-[30px] flex-1 max-sm:justify-center'>{GM}</p>
         </div>
         <div className='px-6'>
