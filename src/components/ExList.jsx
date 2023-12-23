@@ -14,8 +14,12 @@ const ExList = () => {
             setexpence(DeletedList)
             localStorage.setItem("expence",JSON.stringify(DeletedList))
         }
+
   return (
-    <div className=' px-28'>
+    <div className=' px-28  max-sm:px-0'>
+        <div>
+            <input type='text' placeholder='🔎search items here' className='px-2 py-4 border-l-[15px] border-yellow-500 mb-4 focus:outline-none font-extrabold text-16 bg-transparent'/>
+        </div>
        <div className='h_div w-full shadow-sm sticky'>
         <a>Name</a>
         <a>Amount</a>

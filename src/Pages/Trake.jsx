@@ -54,7 +54,6 @@ const Trake = () => {
         date:`${new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear()}`
       }
       setBudget([...Budget,Bdg])
-      console.log([...Budget,Bdg])
       localStorage.setItem("budget",JSON.stringify([...Budget,Bdg]))
       setBgName("")
       setBgAm(0)
@@ -87,21 +86,21 @@ const Trake = () => {
       }
   return (
     <div className='bg-[#fffbefee] w-full'>
-          <div className='flex justify-end w-full py-2'>
-            <button className='w-1/6 font-bold border-2 py-1.5 border-red-500 mr-10 duration-300 active:scale-75' onClick={deleteUser}>Delete User</button>
+          <div className='flex justify-end w-full py-2 max-sm:justify-center'>
+            <button className='w-1/6 font-bold border-2 py-1.5 border-red-500 mr-10 duration-300 active:scale-75 max-sm:w-1/2' onClick={deleteUser}>Delete User</button>
           </div>
-        <div className='w-full flex justify-between border items-center p-2'>
+        <div className='w-full flex justify-between border items-center p-2 flex-wrap'>
           {/* greet header */}
-            <p id="greet" className='mt-4'>Welcome,<span className='ml-[10px] text-[#16BAEE]'>{user || "name"}👋</span></p>
-            <p className='flex justify-end mr-4 text-[#1B66D6] float-right text-[30px]'>{GM}</p>
+            <p id="greet" className='mt-4'>Welcome,<span className='ml-[10px] text-[#16BAEE] flex-1'>{user || "name"}👋</span></p>
+            <p className='flex justify-end mr-4 text-[#8dbaff] float-right text-[30px] flex-1 max-sm:justify-center'>{GM}</p>
         </div>
         <div className='px-6'>
           {/* line */}
           <div className='linediv '></div>
         </div>
-        <div className='w-full flex gap-10 justify-center mt-10'>
+        <div className='w-full flex gap-32 justify-center mt-10 flex-wrap max-sm:px-6'>
           {/* input boxes */}
-        <div className='w-1/4  shadow-black p-6  border-black rounded-lg outline-dashed  ring-2 ring-gray-300 shadow-lg ring-offset-2'>
+        <div className='w-1/4  shadow-black p-6  border-black rounded-lg outline-dashed  ring-2 ring-gray-300 shadow-lg ring-offset-2 max-sm:w-full'>
         {/* Budget div  */}
         <p className='font-bold text-lg pb-4'>Add Budget</p>
         <label className='text-md font-bold' htmlFor="budget">BudgetName</label>
@@ -125,7 +124,7 @@ const Trake = () => {
         <button className="flex bg-black/95 mt-4 w-1/2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out" onClick={Addbudget}>Add budget<img src={A} className='h-4 mt-1.5 w-4 ml-1.5' alt="add"></img></button>
        </div>
        {/* Expences div */}
-       <div className='w-1/4 shadow-black p-6  border-black rounded-lg outline-dashed  ring-2 ring-gray-300 shadow-lg ring-offset-2'>
+       <div className='w-1/4 shadow-black p-6  border-black rounded-lg outline-dashed  ring-2 ring-gray-300 shadow-lg ring-offset-2 max-sm:w-full'>
         <p className='font-bold text-lg pb-4'>Add Expence</p>
         <label className='text-md font-bold' htmlFor="budget">Expence Name</label>
         <input
@@ -163,11 +162,13 @@ const Trake = () => {
         <button className="flex bg-black/95 mt-4 w-7/12 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out" onClick={addExpence}>Add Expence<img src={A} className='h-4 mt-1.5 w-4 ml-1.5' alt="add"></img></button>
        </div>
         </div>
-        <div className=' border-l-[10px] border-solid border-red-600 ml-48 mt-16'>
+        {
+          Budget.length > 0 && <div className=' border-l-[10px] border-solid border-red-600 ml-28 mt-16 max-sm:ml-10'>
           <a className='font-extrabold text-[20px] ml-[3px]'>Existing Budget</a>
         </div>
-        <div className='flex flex-wrap justify-center mt-2 p-8 gap-5'>
-          {/* budget block */}
+        }
+        <div className='flex flex-wrap justify-start mt-2 p-8 gap-5 ml-20 max-sm:ml-0'>
+          {/* budget  show block */}
           {
             Budget.map((ele)=>(
               <BudgetCart 
@@ -178,12 +179,15 @@ const Trake = () => {
             ))
           }
         </div>
-          <div className='my-10'>
-            <div className='ml-28 border-l-[10px] border-green-600 text-xl font-extrabold pl-1 mb-6'>
+        {/* expence show block */}
+          {
+            expence.length > 0 && <div className='my-10'>
+            <div className='ml-28 border-l-[10px] border-green-600 text-xl font-extrabold pl-1 mb-6 max-sm:ml-8'>
               Recenct Expences
             </div>
             <ExList/>
           </div>
+          }
           {/* footer */}
           <Footer/>
     </div>

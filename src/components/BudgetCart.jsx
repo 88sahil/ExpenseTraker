@@ -24,8 +24,9 @@ const BudgetCart = ({name,amount,id,active=true}) => {
             <a className='atag'>{name}</a>
             <a className="atag flex justify-end mr-2 ">{amount}&#8377;</a>
         </div>
-        <div className='w-full bg-[#A9A9A9] h-6 rounded-lg mt-4 shadow-md shadow-gray-600'>
-            <div className='bg-[#FF0000] h-full rounded-lg ml-[1px] max-w-full' style={{width:`${b}%`}}></div>
+        {/* progress bar */}
+        <div className='w-full bg-[#A9A9A9] h-6 rounded-lg mt-4 shadow-md shadow-gray-600 py-[0.5px] flex items-center justify-start'>
+            <div className='bg-[#FF0000] h-full rounded-lg  max-w-full' style={{width:`${b}%`}}></div>
         </div>
         <div className='flex justify-between mt-3'>
             <a className='ml-2 text-[#938282]'>{total} Spend</a>
@@ -33,7 +34,7 @@ const BudgetCart = ({name,amount,id,active=true}) => {
         </div>
         <div className='w-full flex justify-center mt-8'>
             {
-                active && <button className='bg-[#FF0000] w-1/3 text-white px-4 py-1.5 rounded-lg hover:bg-transparent hover:text-black duration-200' onClick={view}>
+                active && <button className='bg-[#FF0000] w-1/3 text-white px-4 py-1.5 rounded-lg hover:bg-transparent hover:text-black duration-200 max-sm:w-1/2' onClick={view}>
                 View Budget
             </button>
             }
