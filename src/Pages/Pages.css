@@ -36,10 +36,6 @@
     display: block;
     font-weight: bold;
     font-size: 36px;
-    background-image: url("D:/sahil's web/react practice/MegaProject/Expense Traker/src/assets/Images/texture.png");
-    background-clip: text;
-    background-position: 172px 327px;
-    -webkit-background-clip: text;
     color: transparent;
 }
 #homeBtn {
