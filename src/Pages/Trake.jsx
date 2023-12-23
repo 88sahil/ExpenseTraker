@@ -66,7 +66,7 @@ const Trake = () => {
         
         const ex ={
           id:`${Id}`,
-          name:`${exname}`,
+          name:`${exname.toLocaleLowerCase()}`,
           Budget:`${Budget.length===1 ? `${Budget[0].name}`:exbg}`|| `${exbg.length===0 ? `${Budget[0].name}`:""}`,
           amount:`${exAm}`,
           date:`${new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear()}`
