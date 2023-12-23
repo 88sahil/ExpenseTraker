@@ -180,7 +180,7 @@ const Trake = () => {
         {/* expence show block */}
           {
             expence.length > 0 && <div className='my-10'>
-            <div className='ml-28 border-l-[10px] border-green-600 text-xl font-extrabold pl-1 mb-6 max-sm:ml-8'>
+            <div className='ml-28 border-l-[10px] border-green-600 text-xl font-extrabold pl-1 mb-6 max-sm:ml-0'>
               Recenct Expences
             </div>
             <ExList/>
