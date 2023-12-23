@@ -86,9 +86,7 @@ const Trake = () => {
       }
   return (
     <div className='bg-[#fffbefee] w-full'>
-          <div className='flex justify-end w-full py-2 max-sm:justify-center'>
-            <button className='w-1/6 font-bold border-2 py-1.5 border-red-500 mr-10 duration-300 active:scale-75 max-sm:w-1/2' onClick={deleteUser}>Delete User</button>
-          </div>
+         
         <div className='w-full flex justify-between border items-center p-2 flex-wrap'>
           {/* greet header */}
             <p id="greet" className='mt-4 max-sm:text-[0.5rem]'>Welcome,<span className='ml-[8px] text-[#16BAEE] flex-1'>{user || "name"}👋</span></p>
@@ -121,7 +119,7 @@ const Trake = () => {
             placeholder='eg.,1000'
             className='py-2 shadow-sm bg-gray-400 rounded-lg text-black placeholder:text-black px-2'
         ></input>
-        <button className="flex bg-black/95 mt-4 w-1/2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out" onClick={Addbudget}>Add budget<img src={A} className='h-4 mt-1.5 w-4 ml-1.5' alt="add"></img></button>
+        <button className="flex bg-black/95 mt-4 w-1/2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out max-sm:w-10/12" onClick={Addbudget}>Add budget<img src={A} className='h-4 mt-1.5 w-4 ml-1.5' alt="add"></img></button>
        </div>
        {/* Expences div */}
        <div className='w-1/4 shadow-black p-6  border-black rounded-lg outline-dashed  ring-2 ring-gray-300 shadow-lg ring-offset-2 max-sm:w-full'>
@@ -188,6 +186,9 @@ const Trake = () => {
             <ExList/>
           </div>
           }
+          <div className='flex justify-end w-full py-2 max-sm:justify-center'>
+            <button className='w-1/6 font-bold border-2 py-1.5 border-red-500 mr-10 duration-300 active:scale-75 max-sm:w-1/2' onClick={deleteUser}>Delete User</button>
+          </div>
           {/* footer */}
           <Footer/>
     </div>
