@@ -23,7 +23,7 @@ const Home = () => {
         <div className='flex flex-wrap w-full p-10 my-[50px] max-sm:p-0'>
         <div className='w-1/2 flex flex-col items-center py-4 justify-center gap-5 max-sm:w-full max-sm:order-2 max-sm:gap-3'>
             <a id='homep1' className='flex text-center'>Take Control on</a>
-            <a id='homep2' className='flex text-center'>Your money</a>
+            <a id='homep2' className='flex text-center bg-blue-400'>Your money</a>
             <input 
                 type="text"
                 value={user}
