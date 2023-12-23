@@ -35,7 +35,7 @@ const BudgetCart = ({name,amount,id,active=true}) => {
         </div>
         <div className='w-full flex justify-center mt-8'>
             {
-                active && <button className='flex bg-[#FF0000] w-1/2 justify-center gap-2 text-white px-4 py-1.5 rounded-lg hover:bg-gray-500 hover:text-black duration-200 max-sm:w-1/2' onClick={view}>
+                active && <button className='flex bg-[#FF0000] w-1/2 justify-center gap-2 text-white px-4 py-1.5 rounded-lg hover:bg-gray-500 hover:text-black duration-200 max-sm:w-10/12' onClick={view}>
                 View Budget <img src={v} alt="nona" className='w-5 h-5' />
             </button>
             }
