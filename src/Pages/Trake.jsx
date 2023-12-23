@@ -89,8 +89,8 @@ const Trake = () => {
          
         <div className='w-full flex justify-between border items-center p-2 flex-wrap'>
           {/* greet header */}
-            <p id="greet" className='mt-4 max-sm:text-[25px]'>Welcome,<span className='ml-[8px] text-[#16BAEE]'>{user}</span></p>
-            <p className='flex justify-end mr-4 text-[#8dbaff] float-right text-[30px] flex-1 max-sm:justify-center'>{GM}</p>
+            <p id="greet" className='mt-4 max-sm:text-[30px]'>Welcome,<span className='ml-[8px] text-[#16BAEE]'>{user}</span></p>
+            <p className='flex justify-end items-end mr-4 text-[#8dbaff]  text-[30px] flex-1 max-sm:justify-center'>{GM}</p>
         </div>
         <div className='px-6'>
           {/* line */}
@@ -186,7 +186,7 @@ const Trake = () => {
             <ExList/>
           </div>
           }
-          <div className='flex justify-end w-full py-2 max-sm:justify-center'>
+          <div className='flex justify-center w-full py-2 max-sm:justify-center'>
             <button className='w-1/6 font-bold border-2 py-1.5 border-red-500 mr-10 duration-300 active:scale-75 max-sm:w-1/2' onClick={deleteUser}>Delete User</button>
           </div>
           {/* footer */}
