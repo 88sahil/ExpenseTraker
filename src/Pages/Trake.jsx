@@ -51,7 +51,7 @@ const Trake = () => {
         id:`${Id}`,
         name:`${BgName}`,
         amount:`${BgAm}`,
-        date:`${new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear()}`
+        date:`${new Date().getDate()+"/"+new Date().getMonth()+1+"/"+new Date().getFullYear()}`
       }
       setBudget([...Budget,Bdg])
       localStorage.setItem("budget",JSON.stringify([...Budget,Bdg]))
