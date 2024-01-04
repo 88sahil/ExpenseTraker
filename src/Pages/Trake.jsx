@@ -51,7 +51,7 @@ const Trake = () => {
         id:`${Id}`,
         name:`${BgName}`,
         amount:`${BgAm}`,
-        date:`${new Date().getDate()+"/"+new Date().getMonth()+1+"/"+new Date().getFullYear()}`
+        date:`${new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear()}`
       }
       setBudget([...Budget,Bdg])
       localStorage.setItem("budget",JSON.stringify([...Budget,Bdg]))
@@ -69,7 +69,7 @@ const Trake = () => {
           name:`${exname.toLocaleLowerCase()}`,
           Budget:`${Budget.length===1 ? `${Budget[0].name}`:exbg}`|| `${exbg.length===0 ? `${Budget[0].name}`:""}`,
           amount:`${exAm}`,
-          date:`${new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear()}`
+          date:`${new Date().getDate()+"/"+new Date().getMonth()+1+"/"+new Date().getFullYear()}`
         }
         setexpence([...expence,ex])
         localStorage.setItem("expence",JSON.stringify([...expence,ex]))
